@@ -1,8 +1,9 @@
 <h1 align="center"> weather </h1>
 
 <p align="center"> A weather SDK.</p>
-[![Build Status](https://travis-ci.org/im55cc/weather.svg?branch=master)](https://travis-ci.org/im55cc/weather)
 
+[![Build Status](https://travis-ci.org/im55cc/weather.svg?branch=master)](https://travis-ci.org/im55cc/weather)
+![StyleCI build status](https://github.styleci.io/repos/146775069/shield) 
 ## Installing
 
 ```shell
