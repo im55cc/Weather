@@ -26,7 +26,17 @@ class Weather
         $this->guzzleOptions = $options;
     }
 
-    public function getWeather($city, string $type = "base", string $format = "json")
+    public function getLiveWeather($city, $format = 'json')
+    {
+        return $this->getWeather($city, 'base', $format);
+    }
+
+    public function getForcastsWeather($city, $format = 'json')
+    {
+        return $this->getWeather($city, 'all', $format);
+    }
+
+    public function getWeather($city, $type = "base", $format = "json")
     {
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
