@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the im55cc/weather.
+ *
+ * (c) 55 <hi@im55.cc>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Im55cc\Weather\Tests;
 
 use GuzzleHttp\Client;
@@ -13,7 +22,7 @@ use PHPUnit\Framework\TestCase;
 
 class WeatherTest extends TestCase
 {
-        public function testGetWeatherWithInvalidType()
+    public function testGetWeatherWithInvalidType()
     {
         $w = new Weather('mock-key');
 
@@ -94,7 +103,7 @@ class WeatherTest extends TestCase
     {
         $w = new Weather('mock-key');
 
-// 断言返回结果为 GuzzleHttp\ClientInterface 实例
+        // 断言返回结果为 GuzzleHttp\ClientInterface 实例
         $this->assertInstanceOf(ClientInterface::class, $w->getHttpClient());
     }
 
@@ -102,13 +111,13 @@ class WeatherTest extends TestCase
     {
         $w = new Weather('mock-key');
 
-// 设置参数前，timeout 为 null
+        // 设置参数前，timeout 为 null
         $this->assertNull($w->getHttpClient()->getConfig('timeout'));
 
-// 设置参数
+        // 设置参数
         $w->setGuzzleOptions(['timeout' => 5000]);
 
-// 设置参数后，timeout 为 5000
+        // 设置参数后，timeout 为 5000
         $this->assertSame(5000, $w->getHttpClient()->getConfig('timeout'));
     }
 
