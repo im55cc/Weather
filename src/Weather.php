@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the im55cc/weather.
+ *
+ * (c) 55 <hi@im55.cc>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Im55cc\Weather;
 
 use GuzzleHttp\Client;
@@ -9,6 +18,7 @@ use Im55cc\Weather\Exceptions\InvalidArgumentException;
 class Weather
 {
     protected $key;
+
     protected $guzzleOptions = [];
 
     public function __construct(string $key)
@@ -36,16 +46,16 @@ class Weather
         return $this->getWeather($city, 'all', $format);
     }
 
-    public function getWeather($city, $type = "base", $format = "json")
+    public function getWeather($city, $type = 'base', $format = 'json')
     {
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
 
         if (!\in_array(\strtolower($format), ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: ' . $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
         if (!\in_array(\strtolower($type), ['base', 'all'])) {
-            throw new InvalidArgumentException('Invalid type value(base/all): ' . $type);
+            throw new InvalidArgumentException('Invalid type value(base/all): '.$type);
         }
 
         $query = array_filter([
